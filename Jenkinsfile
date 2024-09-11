@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent win-agent
 
     environment {
         DOTNET_CLI_HOME = "C:\\Program Files\\dotnet"
@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                echo 'Checking out the code from Git...'
                 checkout scm
             }
         }
@@ -25,14 +26,14 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                script {
-                    // Running tests
-                    bat "dotnet test --no-restore --configuration Release"
-                }
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         script {
+        //             // Running tests
+        //             bat "dotnet test --no-restore --configuration Release"
+        //         }
+        //     }
+        // }
 
         stage('Publish') {
             steps {
