@@ -2,10 +2,6 @@ pipeline {
      agent {
         label 'win-agent'
     }
-    tools {
-        git 'win-agent'  // Replace 'Default' with the Git installation name set in Jenkins
-    }
-
     environment {
         DOTNET_CLI_HOME = "C:\\Program Files\\dotnet"
     }
